@@ -1,11 +1,10 @@
 import './App.css';
-import Header from '@/components/Header';
+import Todo from '@/Todo';
 
 function App() {
   return (
     <>
-      <Header />
-      <h1>안녕 리액트 스타트 !!</h1>
+      <Todo />
     </>
   );
 }
