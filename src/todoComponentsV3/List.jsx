@@ -1,14 +1,10 @@
-import style from '@/todoComponentsV2/Todo.module.css';
+import style from '@/todoComponentsV3/Todo.module.css';
 import TodoItem from './TodoItem';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useContext } from 'react';
+import { TodoContext } from './Todo';
 
-export default function List({
-  todos,
-  onUpdate,
-  search,
-  setSearch,
-  onDelete,
-}) {
+export default function List({ search, setSearch }) {
+  const { todos } = useContext(TodoContext);
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
   };
@@ -22,20 +18,6 @@ export default function List({
     );
   };
   const filteredTodos = getFilteredTodos();
-
-  // const getAnalyzedData = () => {
-  //   console.log('getAnalyzedData 호출!');
-  //   const totalCount = todos.length;
-  //   const doneCount = todos.filter((todo) => todo.isDone).length;
-  //   const notDoneCount = totalCount - doneCount;
-
-  //   return {
-  //     totalCount,
-  //     doneCount,
-  //     notDoneCount,
-  //   };
-  // };
-  // const { totalCount, doneCount, notDoneCount } = getAnalyzedData();
 
   const { totalCount, doneCount, notDoneCount } = useMemo(() => {
     console.log('getAnalyzedData 호출!');
@@ -68,12 +50,7 @@ export default function List({
       </div>
       <div>
         {filteredTodos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            {...todo}
-            onUpdate={onUpdate}
-            onDelete={onDelete}
-          />
+          <TodoItem key={todo.id} {...todo} />
         ))}
       </div>
     </div>

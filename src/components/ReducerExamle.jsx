@@ -1,5 +1,12 @@
 import { useReducer } from 'react';
 
+/**
+ * useReducer
+ * 컴포넌트 내부에 새로운 state 를 생성하는 리액트 훅
+ * 모든 useState 는 useReducer 로 대체 가능
+ * !! 상태 관리 코드를 컴포넌트 외부로 분리할 수 있음
+ */
+
 // reducer : 변환기
 // -> 상태를 실제로 변화시키는 변환기 역할
 // 함수 이름은 커스텀 가능

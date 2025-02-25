@@ -1,9 +1,17 @@
-import sytle from '@/todoComponentsV2/Todo.module.css';
-import Editor from '@/todoComponentsV2/Editor';
-import Header from '@/todoComponentsV2/Header';
-import List from '@/todoComponentsV2/List';
-import { mockData } from '@/todoComponentsV2/mockData';
-import { useCallback, useReducer, useRef, useState } from 'react';
+import sytle from '@/todoComponentsV3/Todo.module.css';
+import Editor from '@/todoComponentsV3/Editor';
+import Header from '@/todoComponentsV3/Header';
+import List from '@/todoComponentsV3/List';
+import { mockData } from '@/todoComponentsV3/mockData';
+import {
+  useCallback,
+  useReducer,
+  useRef,
+  useState,
+  createContext,
+} from 'react';
+
+export const TodoContext = createContext();
 
 function reducer(state, action) {
   switch (action.type) {
@@ -45,13 +53,6 @@ export default function Todo() {
       type: 'UPDATE',
       targetId,
     });
-    // setTodos(
-    //   todos.map((todo) =>
-    //     todo.id === targetId
-    //       ? { ...todo, isDone: !todo.isDone }
-    //       : todo,
-    //   ),
-    // );
   }, []);
 
   // todo 목록 삭제
@@ -60,7 +61,6 @@ export default function Todo() {
       type: 'DELETE',
       targetId,
     });
-    // setTodos(todos.filter((todo) => todo.id !== targetId));
   }, []); // [] 빈배열 전달시 마운트될 때에만 한 번만 함수를 생성하고 그 다음부터 재생성 X
 
   // 검색어 초기화 함수
@@ -71,14 +71,12 @@ export default function Todo() {
   return (
     <div className={sytle.todo_wrap}>
       <Header />
-      <Editor onCreate={onCreate} onClearSearch={onClearSearch} />
-      <List
-        todos={todos}
-        onUpdate={onUpdate}
-        search={search}
-        setSearch={setSearch}
-        onDelete={onDelete}
-      />
+      <TodoContext.Provider
+        value={{ todos, onCreate, onUpdate, onDelete }}
+      >
+        <Editor onClearSearch={onClearSearch} />
+        <List search={search} setSearch={setSearch} />
+      </TodoContext.Provider>
     </div>
   );
 }

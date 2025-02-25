@@ -1,4 +1,4 @@
-import style from '@/todoComponentsV2/Todo.module.css';
+import style from '@/todoComponentsV3/Todo.module.css';
 
 import { memo } from 'react';
 

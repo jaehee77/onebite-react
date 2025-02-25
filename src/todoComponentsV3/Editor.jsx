@@ -1,7 +1,9 @@
-import style from '@/todoComponentsV2/Todo.module.css';
-import { useRef, useState } from 'react';
+import style from '@/todoComponentsV3/Todo.module.css';
+import { useContext, useRef, useState } from 'react';
+import { TodoContext } from './Todo';
 
-export default function Editor({ onCreate, onClearSearch }) {
+export default function Editor({ onClearSearch }) {
+  const { onCreate } = useContext(TodoContext);
   const [content, setContent] = useState('');
 
   const contentRef = useRef();
