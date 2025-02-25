@@ -1,23 +1,26 @@
-import style from '@/Todo.module.css';
+import style from '@/todoComponents/Todo.module.css';
 import { useRef, useState } from 'react';
 
-export default function Editor({ onCreate }) {
+export default function Editor({ onCreate, onClearSearch }) {
   const [content, setContent] = useState('');
 
   const contentRef = useRef();
 
   const onChangeContent = (e) => {
     setContent(e.target.value);
+    console.log(content);
   };
 
   const onSubmit = () => {
     if (content.trim() === '') {
+      setContent('');
       contentRef.current.focus();
       return;
     }
     onCreate(content.trim());
     setContent('');
     // contentRef.current.focus();
+    onClearSearch(); // Todo 추가 후 검색어 초기화
   };
 
   const onKeydown = (e) => {

@@ -1,24 +1,37 @@
-import style from '@/Todo.module.css';
+import style from '@/todoComponents/Todo.module.css';
 import { useState } from 'react';
 
-export default function TodoItem({ content, date, isDone }) {
-  const [check, setCheck] = useState(isDone);
-  const onChangeCheck = (e) => {
-    setCheck((prevCheck) => !prevCheck);
+export default function TodoItem({
+  id,
+  content,
+  date,
+  isDone,
+  onUpdate,
+  onDelete,
+}) {
+  const onChangeCheckbox = (e) => {
+    onUpdate(id);
+  };
+
+  const onClickDelete = () => {
+    const isConfirmed = confirm('Are you sure you want to delete?');
+    if (isConfirmed) onDelete(id);
   };
 
   return (
     <div className={style.todo_item}>
       <input
         type="checkbox"
-        name=""
-        id=""
-        checked={check}
-        onChange={onChangeCheck}
+        checked={isDone}
+        onChange={onChangeCheckbox}
       />
       <div className={style.content}>{content}</div>
-      <div className={style.date}>{date}</div>
-      <button className={style.btn_delete}>삭제</button>
+      <div className={style.date}>
+        {new Date(date).toLocaleDateString()}
+      </div>
+      <button className={style.btn_delete} onClick={onClickDelete}>
+        삭제
+      </button>
     </div>
   );
 }

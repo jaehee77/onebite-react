@@ -1,10 +1,14 @@
-import style from '@/Todo.module.css';
+import style from '@/todoComponents/Todo.module.css';
 import TodoItem from './TodoItem';
 import { useState } from 'react';
 
-export default function List({ todos }) {
-  const [search, setSearch] = useState('');
-
+export default function List({
+  todos,
+  onUpdate,
+  search,
+  setSearch,
+  onDelete,
+}) {
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
   };
@@ -32,7 +36,12 @@ export default function List({ todos }) {
       </div>
       <div>
         {filteredTodos.map((todo) => (
-          <TodoItem key={todo.id} {...todo} />
+          <TodoItem
+            key={todo.id}
+            {...todo}
+            onUpdate={onUpdate}
+            onDelete={onDelete}
+          />
         ))}
       </div>
     </div>
