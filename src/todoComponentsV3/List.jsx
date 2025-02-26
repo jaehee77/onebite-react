@@ -1,10 +1,10 @@
 import style from '@/todoComponentsV3/Todo.module.css';
 import TodoItem from './TodoItem';
 import { useState, useMemo, useContext } from 'react';
-import { TodoContext } from './Todo';
+import { TodoStateContext } from './Todo';
 
 export default function List({ search, setSearch }) {
-  const { todos } = useContext(TodoContext);
+  const todos = useContext(TodoStateContext);
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
   };

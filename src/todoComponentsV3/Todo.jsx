@@ -9,9 +9,11 @@ import {
   useRef,
   useState,
   createContext,
+  useMemo,
 } from 'react';
 
-export const TodoContext = createContext();
+export const TodoStateContext = createContext();
+export const TodoDispatchContext = createContext();
 
 function reducer(state, action) {
   switch (action.type) {
@@ -63,6 +65,14 @@ export default function Todo() {
     });
   }, []); // [] 빈배열 전달시 마운트될 때에만 한 번만 함수를 생성하고 그 다음부터 재생성 X
 
+  const memoizedDispatch = useMemo(() => {
+    return {
+      onCreate,
+      onUpdate,
+      onDelete,
+    };
+  }, []);
+
   // 검색어 초기화 함수
   const onClearSearch = () => {
     setSearch(''); // 검색어 초기화
@@ -71,12 +81,14 @@ export default function Todo() {
   return (
     <div className={sytle.todo_wrap}>
       <Header />
-      <TodoContext.Provider
-        value={{ todos, onCreate, onUpdate, onDelete }}
-      >
-        <Editor onClearSearch={onClearSearch} />
-        <List search={search} setSearch={setSearch} />
-      </TodoContext.Provider>
+      <TodoStateContext.Provider value={todos}>
+        <TodoDispatchContext.Provider
+          value={{ onCreate, onUpdate, onDelete }}
+        >
+          <Editor onClearSearch={onClearSearch} />
+          <List search={search} setSearch={setSearch} />
+        </TodoDispatchContext.Provider>
+      </TodoStateContext.Provider>
     </div>
   );
 }

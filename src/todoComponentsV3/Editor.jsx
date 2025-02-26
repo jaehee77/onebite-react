@@ -1,9 +1,9 @@
 import style from '@/todoComponentsV3/Todo.module.css';
 import { useContext, useRef, useState } from 'react';
-import { TodoContext } from './Todo';
+import { TodoDispatchContext } from './Todo';
 
 export default function Editor({ onClearSearch }) {
-  const { onCreate } = useContext(TodoContext);
+  const { onCreate } = useContext(TodoDispatchContext);
   const [content, setContent] = useState('');
 
   const contentRef = useRef();
