@@ -1,0 +1,13 @@
+
+# npm i json-server
+json-server --watch ./src/vocaComponent/vocaData.json --port 3001  
+
+
+## REST API
+Create : POST
+Read : GET
+Update: PUT
+Delete : DELETE
+
+locallhost:3001/words?day=1 
+day: 1 에 해당하는 목록만 가져옴

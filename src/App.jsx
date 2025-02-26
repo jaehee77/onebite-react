@@ -1,10 +1,10 @@
 import './App.css';
-import Todo from './todoComponentsV3/Todo';
+import Voca from './vocaComponent/Voca';
 
 function App() {
   return (
     <>
-      <Todo />
+      <Voca />
     </>
   );
 }
