@@ -10,6 +10,7 @@ import {
   useParams,
 } from 'react-router-dom';
 import NotFound from './NotFound';
+import CreateWord from './CreateWord';
 
 export default function Voca() {
   return (
@@ -34,6 +35,15 @@ export default function Voca() {
                 <VocaHeader />
                 <VocaDay />
                 <VocaList />
+              </>
+            }
+          />
+          <Route
+            path="/createWord"
+            element={
+              <>
+                <VocaHeader />
+                <CreateWord />
               </>
             }
           />

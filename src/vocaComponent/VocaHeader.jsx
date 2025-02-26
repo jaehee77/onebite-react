@@ -9,9 +9,9 @@ export default function VocaHeader() {
         <Link to="/">영단어 단어장</Link>
       </h1>
       <div className={style.menu}>
-        <a href="#none" className={style.link}>
+        <Link to="/createWord" className={style.link}>
           단어 추가
-        </a>
+        </Link>
         <a href="#none" className={style.link}>
           Day 추가
         </a>
