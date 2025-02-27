@@ -1,5 +1,5 @@
 import './diary.css';
-import { useReducer, useRef } from 'react';
+import { createContext, useReducer, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import New from './pages/New';
@@ -7,6 +7,9 @@ import Diary from './pages/Diary';
 import DiaryEdit from './pages/DiaryEdit';
 import NotFound from './pages/NotFound';
 import diaryData from './pages/DiaryData';
+
+export const DiaryStateContext = createContext();
+export const DiaryDispatchContext = createContext();
 
 function reducer(state, action) {
   switch (action.type) {
@@ -68,20 +71,23 @@ export default function DiaryIndex() {
 
   return (
     <div className="diary-wrap">
-      <button
-        onClick={() => {
-          onDelete(1);
-        }}
-      >
-        일기 추가 테스트
-      </button>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/new" element={<New />} />
-        <Route path="/diary/:id" element={<Diary />} />
-        <Route path="/edit/:id" element={<DiaryEdit />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <DiaryStateContext.Provider value={data}>
+        <DiaryDispatchContext.Provider
+          value={{
+            onCreate,
+            onUpdate,
+            onDelete,
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/new" element={<New />} />
+            <Route path="/diary/:id" element={<Diary />} />
+            <Route path="/edit/:id" element={<DiaryEdit />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </DiaryDispatchContext.Provider>
+      </DiaryStateContext.Provider>
     </div>
   );
 }
