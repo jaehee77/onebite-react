@@ -11,6 +11,21 @@ import {
 } from 'react-router-dom';
 import NotFound from './NotFound';
 import CreateWord from './CreateWord';
+import CreateDay from './CreateDay';
+
+const VocaLayout = ({ children, defaultDay }) => {
+  return (
+    <>
+      <VocaHeader />
+      {children || (
+        <>
+          <VocaDay />
+          <VocaList defaultDay={defaultDay} />
+        </>
+      )}
+    </>
+  );
+};
 
 export default function Voca() {
   return (
@@ -18,33 +33,22 @@ export default function Voca() {
       <div className={style.App}>
         {/* 여기에서 기본적인 컴포넌트들을 감싸고 있어야 합니다. */}
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <VocaHeader />
-                <VocaDay />
-                <VocaList defaultDay={1} />
-              </>
-            }
-          />
-          <Route
-            path="/day/:day"
-            element={
-              <>
-                <VocaHeader />
-                <VocaDay />
-                <VocaList />
-              </>
-            }
-          />
+          <Route path="/" element={<VocaLayout defaultDay={1} />} />
+          <Route path="/day/:day" element={<VocaLayout />} />
           <Route
             path="/createWord"
             element={
-              <>
-                <VocaHeader />
+              <VocaLayout>
                 <CreateWord />
-              </>
+              </VocaLayout>
+            }
+          />
+          <Route
+            path="/createDay"
+            element={
+              <VocaLayout>
+                <CreateDay />
+              </VocaLayout>
             }
           />
           {/* 404 경로 처리 */}

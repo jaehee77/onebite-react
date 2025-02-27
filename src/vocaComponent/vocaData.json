@@ -23,7 +23,7 @@
       "day": 1,
       "eng": "book",
       "kor": "책",
-      "isDone": true
+      "isDone": false
     },
     {
       "id": "2",
@@ -73,6 +73,27 @@
       "kor": "사과",
       "isDone": false,
       "id": "12"
+    },
+    {
+      "id": "3d8a",
+      "eng": "typescript",
+      "kor": "타입스크립트",
+      "day": "2",
+      "isDone": false
+    },
+    {
+      "id": "beac",
+      "eng": "next.js",
+      "kor": "넥스트",
+      "day": 3,
+      "isDone": false
+    },
+    {
+      "id": "cb7f",
+      "eng": "apple",
+      "kor": "사과",
+      "day": 1,
+      "isDone": false
     }
   ]
 }

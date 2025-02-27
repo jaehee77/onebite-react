@@ -61,10 +61,15 @@ export default function VocaItem({ word: w }) {
             onClick={() => {
               setIsShow(!isShow);
             }}
+            disabled={isDone}
           >
             {isShow ? '뜻 숨기기' : '뜻 보기'}
           </button>
-          <button className={style.btn_del} onClick={onClickDelete}>
+          <button
+            className={style.btn_del}
+            onClick={onClickDelete}
+            disabled={isDone}
+          >
             삭제
           </button>
         </div>

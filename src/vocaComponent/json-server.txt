@@ -1,5 +1,5 @@
 
-# npm i json-server
+# npm i -g json-server (글로벌로 해야함)
 json-server --watch ./src/vocaComponent/vocaData.json --port 3001  
 
 

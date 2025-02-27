@@ -12,9 +12,9 @@ export default function VocaHeader() {
         <Link to="/createWord" className={style.link}>
           단어 추가
         </Link>
-        <a href="#none" className={style.link}>
+        <Link to="/createDay" className={style.link}>
           Day 추가
-        </a>
+        </Link>
       </div>
     </div>
   );

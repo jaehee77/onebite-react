@@ -111,6 +111,12 @@ button {
   color: #fff;
   background-color: dodgerblue;
 }
+.off {
+  button:disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+  }
+}
 
 .input_area {
   margin-bottom: 10px;
