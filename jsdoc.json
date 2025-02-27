@@ -1,0 +1,20 @@
+{
+  "source": {
+    "include": ["apps/desktop/src", "apps/mobile/src", "apps/backoffice/src", "packages/ui/src/special", "packages/ui/src/common", "packages/ui/src/components"],
+    "includePattern": "\\.(jsx|js|ts|tsx)$",
+    "exclude": ["node_modules"]
+  },
+  "tags": {
+    "allowUnknownTags": ["optional"]
+  },
+  "plugins": ["plugins/markdown", "node_modules/better-docs/typescript"],
+  "opts": {
+    "template": "node_modules/better-docs",
+    "recurse": true,
+    "destination": "./docs"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}

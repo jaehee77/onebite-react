@@ -1,10 +1,13 @@
-import './App.css';
-import Voca from './vocaComponent/Voca';
+// import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import DiaryIndex from './DiaryIndex';
 
 function App() {
   return (
     <>
-      <Voca />
+      <BrowserRouter>
+        <DiaryIndex />
+      </BrowserRouter>
     </>
   );
 }

@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'NanumPenScript';
+  src: url('/NanumPenScript-Regular.ttf');
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+}
+
+body * {
+  font-family: 'NanumPenScript', sans-serif;
+}
+.diary-wrap {
+  background-color: white;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100%;
+  box-shadow: rgba(100, 100, 100, 0.2) 0 0 29px 0;
+  padding: 0 20px;
+}
+
+.button {
+  background-color: rgb(236, 236, 236);
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  white-space: nowrap;
+  &.button-positive {
+    background-color: rgb(100, 201, 100);
+    color: white;
+  }
+  &.button-negative {
+    background-color: rgb(253, 86, 95);
+    color: white;
+  }
+}
+.diary-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(246, 246, 246);
+  > div {
+    display: flex;
+  }
+  .d-header-left {
+    width: 25%;
+    justify-content: flex-start;
+  }
+  .d-header-center {
+    width: 50%;
+    font-size: 25px;
+    justify-content: center;
+  }
+  .d-header-right {
+    width: 25%;
+    justify-content: flex-end;
+  }
+}
