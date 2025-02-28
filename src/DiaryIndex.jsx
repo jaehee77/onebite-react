@@ -33,7 +33,7 @@ function reducer(state, action) {
 export default function DiaryIndex() {
   const [data, dispatch] = useReducer(reducer, diaryData);
   const idRef = useRef(diaryData.length + 1);
-  console.log(idRef);
+  // console.log(idRef);
 
   // 새로운 일기 추가
   const onCreate = (createdDate, emotionId, content) => {
