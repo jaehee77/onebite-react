@@ -1,12 +1,12 @@
 // import './App.css';
 import { BrowserRouter } from 'react-router-dom';
-import DiaryIndex from './DiaryIndex';
+import DiaryApp from './DiaryApp';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <DiaryIndex />
+        <DiaryApp />
       </BrowserRouter>
     </>
   );

@@ -5,12 +5,14 @@ export default function EmotionItem({
   emotionId,
   emotionName,
   isSelected,
+  onClick,
 }) {
   return (
     <div
       className={`emotion-item ${
         isSelected ? `emotion-on-${emotionId}` : ''
       }`.trim()}
+      onClick={onClick}
     >
       <img
         className="emotion-img"

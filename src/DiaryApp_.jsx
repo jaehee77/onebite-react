@@ -3,8 +3,8 @@ import { createContext, useReducer, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import New from './pages/New';
-import Diary from './pages/Diary';
-import DiaryEdit from './pages/DiaryEdit';
+import DiaryDetail from './pages/DiaryDetail';
+import DiaryUpdate from './pages/DiaryUpdate';
 import NotFound from './pages/NotFound';
 import diaryData from './pages/DiaryData';
 
@@ -82,8 +82,8 @@ export default function DiaryIndex() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/new" element={<New />} />
-            <Route path="/diary/:id" element={<Diary />} />
-            <Route path="/edit/:id" element={<DiaryEdit />} />
+            <Route path="/diary/:id" element={<DiaryDetail />} />
+            <Route path="/edit/:id" element={<DiaryUpdate />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </DiaryDispatchContext.Provider>

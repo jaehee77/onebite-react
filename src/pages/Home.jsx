@@ -4,7 +4,7 @@ import DiaryHeader from './DiaryHeader';
 import Button from '../components/Button';
 import DiaryList from './DiaryList';
 import { useContext, useState } from 'react';
-import { DiaryStateContext } from '../DiaryIndex';
+import { DiaryStateContext } from '../DiaryApp';
 
 const getMonthlyData = (pivotDate, data) => {
   const beginTime = new Date(
